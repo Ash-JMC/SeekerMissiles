@@ -9,7 +9,7 @@ public class SeekerMissile_2 : MonoBehaviour
     public Rigidbody tRB;
 
     //Tracking stuff
-    private Vector3 tVel, tPos;
+    private Vector3 tVel, tVelNew, tPos;
     private Quaternion tRot, tRotOld;
     private float tVelMag, distance, ttt, ttt2;
 
@@ -18,10 +18,13 @@ public class SeekerMissile_2 : MonoBehaviour
     public float thrust, turn;
     private Rigidbody RB;
 
+    [Header("Tracking Quality")]
+    public int checkCycles = 2;
 
     [Header("Pretty Stuff")]
     public GameObject pointLight;
-    public float boomPow, boomFallOff;
+    public ParticleSystem boomFX;
+    public float boomPow, boomFallOff, lightIntensity;
     private Vector3 boomVec;
     private LineRenderer lr;
 
@@ -51,11 +54,8 @@ public class SeekerMissile_2 : MonoBehaviour
         tVelMag = tVel.magnitude;
         distance = Vector3.Distance(transform.position, target.position);
         ttt = distance / RB.velocity.magnitude;
-        ttt2 = distance / RB.velocity.magnitude;
         tRot = target.rotation * Quaternion.Inverse(tRotOld);
-
         tRotOld = target.rotation;
-        //Rotate tVel by tRot to predict turn - tRot * rotation https://forum.unity.com/threads/get-the-difference-between-two-quaternions-and-add-it-to-another-quaternion.513187/
 
         if (boomVec != Vector3.zero) boomVec = Vector3.MoveTowards(boomVec, Vector3.zero, boomFallOff * Time.deltaTime);
         
@@ -63,56 +63,34 @@ public class SeekerMissile_2 : MonoBehaviour
 
     void GetIntercept()
     {
-
-        Vector3 tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
-        tPos = target.position + (tVelNew * ttt);
-        //lol
-        distance = Vector3.Distance(transform.position, tPos);
-
-        ttt = distance / RB.velocity.magnitude;
-        tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
-        tPos = target.position + (tVelNew * ttt);
-        distance = Vector3.Distance(transform.position, tPos);
-
-        ttt = distance / RB.velocity.magnitude;
-        tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
-        tPos = target.position + (tVelNew * ttt);
-        distance = Vector3.Distance(transform.position, tPos);
-
-        ttt = distance / RB.velocity.magnitude;
-        tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
-        tPos = target.position + (tVelNew * ttt);
-        distance = Vector3.Distance(transform.position, tPos);
-
-        ttt = distance / RB.velocity.magnitude;
-        tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
-        tPos = target.position + (tVelNew * ttt); distance = Vector3.Distance(transform.position, tPos);
-        ttt = distance / RB.velocity.magnitude;
-        tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
-        tPos = target.position + (tVelNew * ttt);
-        distance = Vector3.Distance(transform.position, tPos);
-
-        ttt = distance / RB.velocity.magnitude;
         tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
         tPos = target.position + (tVelNew * ttt);
 
-        //print("ttt diff = " + (ttt - ttt2));
+        for (int i = 0; i < checkCycles; i++)
+        {
+            distance = Vector3.Distance(transform.position, tPos);
+            ttt = distance / RB.velocity.magnitude;
+            tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
+            tPos = target.position + (tVelNew * ttt);
+        }
+
+
+        //Draw Intercept
         lr.SetPosition(0, target.position);
         lr.SetPosition(1, target.position + tVel * ttt);
         lr.SetPosition(2, tPos);
         lr.SetPosition(3, transform.position);
 
 
-        Vector3 dir = ((tPos) - (transform.position)).normalized;
-        Quaternion lookRot = Quaternion.LookRotation(dir, Vector3.up);
-        Quaternion stepRot = Quaternion.RotateTowards(transform.rotation, lookRot, turn * Time.deltaTime);
-        transform.rotation = stepRot;
     }
 
     void Turn()
     {
         //transform.rotation = tRot * transform.rotation;
-        
+        Vector3 dir = ((tPos) - (transform.position)).normalized;
+        Quaternion lookRot = Quaternion.LookRotation(dir, Vector3.up);
+        Quaternion stepRot = Quaternion.RotateTowards(transform.rotation, lookRot, turn * Time.deltaTime);
+        transform.rotation = stepRot;
     }
 
     void OnCollisionEnter(Collision col)
@@ -127,8 +105,16 @@ public class SeekerMissile_2 : MonoBehaviour
     IEnumerator Boom()
     {
         pointLight.SetActive(true);
+        Light l = pointLight.GetComponent<Light>();
+        l.intensity = lightIntensity;
         boomVec += Random.onUnitSphere * boomPow;
-        yield return new WaitForSeconds(.2f);
+        boomFX.Play();
+
+        while (l.intensity > 0)
+        {
+            l.intensity = Mathf.MoveTowards(l.intensity, 0, lightIntensity / .6f * Time.deltaTime);
+            yield return null;
+        }
         
         pointLight.SetActive(false);
     }
