@@ -5,6 +5,8 @@ using UnityEngine;
 public class SimpleFlight : MonoBehaviour
 {
     public float thrust, pitchSpeed, yawSpeed, rollSpeed;
+    [Range(0f, 1f)]
+    public float alignVelocity;
     public Rigidbody rb;
 
     void Start()
@@ -20,11 +22,18 @@ public class SimpleFlight : MonoBehaviour
         yaw = Input.GetAxis("Yaw") * yawSpeed;
         Vector3 turn = new Vector3(pitch, yaw, roll) * Time.deltaTime;
         transform.Rotate(turn);
-
+            
     }
     void FixedUpdate()
     {
         //rb.AddForce(transform.forward * thrust, ForceMode.Acceleration);
-        rb.velocity = transform.forward * thrust;
+        Vector3 vel = Vector3.Lerp(rb.velocity, transform.forward * thrust, alignVelocity);
+        vel.y -= 9.8f * 2 * Time.fixedDeltaTime;
+        rb.velocity = vel;
+        
     }
+
+
+
+
 }

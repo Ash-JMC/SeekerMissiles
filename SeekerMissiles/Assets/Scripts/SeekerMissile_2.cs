@@ -86,7 +86,6 @@ public class SeekerMissile_2 : MonoBehaviour
 
     void Turn()
     {
-        //transform.rotation = tRot * transform.rotation;
         Vector3 dir = ((tPos) - (transform.position)).normalized;
         Quaternion lookRot = Quaternion.LookRotation(dir, Vector3.up);
         Quaternion stepRot = Quaternion.RotateTowards(transform.rotation, lookRot, turn * Time.deltaTime);
