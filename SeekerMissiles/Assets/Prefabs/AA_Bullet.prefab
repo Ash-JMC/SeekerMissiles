@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5929715526465328278}
   - component: {fileID: 1909905080165433924}
   - component: {fileID: 2815645754154598325}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AA_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -181,7 +181,7 @@ Rigidbody:
   m_GameObject: {fileID: 4302590651202966617}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -213,8 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6380b3cf2489db14c9eec04269a250b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  life: 0
+  impactFX: {fileID: 7936486608207589641, guid: 5407f8abd8e924848993fbf827effefd,
+    type: 3}
 --- !u!1 &5030383507377442393
 GameObject:
   m_ObjectHideFlags: 0

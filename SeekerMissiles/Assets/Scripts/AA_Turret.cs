@@ -16,7 +16,7 @@ public class AA_Turret : MonoBehaviour
     [Header("Weapon Specs")]
     public GameObject bullet;
     public Transform barrel;
-    public float bulletVel, bulletLife, gravity = -9.85f, fireRate, turretTurn, maxAngle;
+    public float bulletVel, bulletLife, bulletSpread, fireRate, maxRange, turretTurn, maxAngle, gravity = -9.85f;
     private Rigidbody RB;
 
     //Weapon stuff
@@ -38,9 +38,13 @@ public class AA_Turret : MonoBehaviour
 
     void Update()
     {
-        GetTargetDeltas();
-        Aim();
-        Shoot();
+        if(Vector3.Distance(target.position, transform.position) <= maxRange)
+        {
+            GetTargetDeltas();
+            Aim();
+            Shoot();
+        }
+        
 
     }
 
@@ -69,9 +73,8 @@ public class AA_Turret : MonoBehaviour
         }
 
         lr.SetPosition(0, target.position);
-        lr.SetPosition(1, target.position + tVel * ttt);
-        lr.SetPosition(2, tPos);
-        lr.SetPosition(3, transform.position);
+        lr.SetPosition(1, tPos);
+        lr.SetPosition(2, transform.position);
     }
 
     void Aim()
@@ -89,8 +92,14 @@ public class AA_Turret : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             GameObject b = Instantiate(bullet, barrel.position, barrel.rotation);
+            //GameObject b = Instantiate(bullet, transform.position, transform.rotation);
             Rigidbody bRB = b.GetComponent<Rigidbody>();
+            Vector3 spread = Vector3.zero;
+            spread.x = Random.Range(-bulletSpread, bulletSpread);
+            spread.y = Random.Range(-bulletSpread, bulletSpread);
+            b.transform.Rotate(spread);
             bRB.AddForce(b.transform.forward * bulletVel, ForceMode.VelocityChange);
+            Destroy(b, bulletLife);
         }
         
 
