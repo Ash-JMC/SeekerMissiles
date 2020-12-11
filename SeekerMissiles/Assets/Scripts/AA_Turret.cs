@@ -15,12 +15,13 @@ public class AA_Turret : MonoBehaviour
 
     [Header("Weapon Specs")]
     public GameObject bullet;
-    public Transform barrel;
+    public Transform[] barrels;
     public float bulletVel, bulletLife, bulletSpread, fireRate, maxRange, turretTurn, maxAngle, gravity = -9.85f;
     private Rigidbody RB;
 
     //Weapon stuff
     private float nextFire;
+    private int barrelNum = 0;
 
     [Header("Tracking Quality")]
     public int checkCycles = 2;
@@ -91,7 +92,10 @@ public class AA_Turret : MonoBehaviour
         if (Time.time > nextFire && cAngle <= maxAngle)
         {
             nextFire = Time.time + fireRate;
-            GameObject b = Instantiate(bullet, barrel.position, barrel.rotation);
+            Transform activeBarrel = barrels[barrelNum];
+            barrelNum = barrelNum < barrels.Length - 1 ? barrelNum + 1 : 0;
+            print(barrelNum);
+            GameObject b = Instantiate(bullet, activeBarrel.position, activeBarrel.rotation);
             //GameObject b = Instantiate(bullet, transform.position, transform.rotation);
             Rigidbody bRB = b.GetComponent<Rigidbody>();
             Vector3 spread = Vector3.zero;

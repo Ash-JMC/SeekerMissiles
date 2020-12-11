@@ -5,14 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject impactFX;
-    private GameObject fx;
     private void OnCollisionEnter(Collision col)
     {
-        fx = Instantiate(impactFX, transform.position, transform.rotation, transform);
-        Destroy(gameObject, 0.05f);
-    }
-    private void OnDestroy()
-    {
-        fx.transform.parent = null;
+        Instantiate(impactFX, col.contacts[0].point - col.contacts[0].normal, transform.rotation, col.transform);
+        Destroy(gameObject);
     }
 }
