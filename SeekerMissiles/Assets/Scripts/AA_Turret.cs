@@ -16,6 +16,7 @@ public class AA_Turret : MonoBehaviour
     [Header("Weapon Specs")]
     public GameObject bullet;
     public Transform[] barrels;
+
     public float bulletVel, bulletLife, bulletSpread, fireRate, maxRange, turretTurn, maxAngle, gravity = -9.85f;
     private Rigidbody RB;
 
@@ -25,15 +26,24 @@ public class AA_Turret : MonoBehaviour
 
     [Header("Tracking Quality")]
     public int checkCycles = 2;
+    
 
     [Header("Pretty Stuff")]
+    public float maxFlash;
+    public bool drawTarget;
     private LineRenderer lr;
-
-
+    private Light[] barrelLights;
     void Start()
     {
         tRotOld = target.rotation;
         lr = GetComponent<LineRenderer>();
+        if (drawTarget) lr.positionCount = 3;
+        barrelLights = new Light[barrels.Length];
+        for(int i = 0; i < barrels.Length; i++)
+        {
+            barrelLights[i] = barrels[i].GetComponentInChildren<Light>(true);
+            barrelLights[i].gameObject.SetActive(false);
+        }
     }
 
 
@@ -59,7 +69,7 @@ public class AA_Turret : MonoBehaviour
         tRotOld = target.rotation;
 
         tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
-        gravOffset = Vector3.up * gravity * ttt;
+        gravOffset = (Vector3.up + (target.forward * .25f)) * gravity * ttt;
 
         tPos = target.position + (tVelNew * ttt) + gravOffset;
 
@@ -70,12 +80,15 @@ public class AA_Turret : MonoBehaviour
             tVelNew = Quaternion.LerpUnclamped(Quaternion.identity, tRot, ttt / Time.deltaTime) * tVel;
             gravOffset = Vector3.down * gravity * ttt;
 
-            tPos = target.position + (tVelNew * ttt) + gravOffset;
+            tPos = target.position + (tVelNew * ttt) + gravOffset *1.1f;
         }
 
-        lr.SetPosition(0, target.position);
-        lr.SetPosition(1, tPos);
-        lr.SetPosition(2, transform.position);
+        if (drawTarget)
+        {
+            lr.SetPosition(0, target.position);
+            lr.SetPosition(1, tPos);
+            lr.SetPosition(2, transform.position);
+        }
     }
 
     void Aim()
@@ -94,9 +107,8 @@ public class AA_Turret : MonoBehaviour
             nextFire = Time.time + fireRate;
             Transform activeBarrel = barrels[barrelNum];
             barrelNum = barrelNum < barrels.Length - 1 ? barrelNum + 1 : 0;
-            print(barrelNum);
+            StartCoroutine(MuzzleFlash(barrelNum));
             GameObject b = Instantiate(bullet, activeBarrel.position, activeBarrel.rotation);
-            //GameObject b = Instantiate(bullet, transform.position, transform.rotation);
             Rigidbody bRB = b.GetComponent<Rigidbody>();
             Vector3 spread = Vector3.zero;
             spread.x = Random.Range(-bulletSpread, bulletSpread);
@@ -107,6 +119,12 @@ public class AA_Turret : MonoBehaviour
         }
         
 
+    }
+    IEnumerator MuzzleFlash(int bNum)
+    {
+        barrelLights[bNum].gameObject.SetActive(true);
+        yield return new WaitForSeconds(Mathf.Min(fireRate / 2, maxFlash));
+        barrelLights[bNum].gameObject.SetActive(false);
     }
 
 }
