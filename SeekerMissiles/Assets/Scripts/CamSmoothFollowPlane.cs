@@ -36,9 +36,9 @@ public class CamSmoothFollowPlane : MonoBehaviour
         Vector3 targetPos = lerpFollow ? Vector3.Slerp(transform.position, target.position, lerpBias) : Vector3.MoveTowards(transform.position, target.position, followSpeed * Time.deltaTime);
         transform.position = targetPos;
 
-        Quaternion targetRot = Quaternion.LookRotation( target.forward, Vector3.up);
+        Quaternion targetRot = Quaternion.LookRotation( target.forward, target.up);
         Quaternion easedRot = Quaternion.Euler(targetRot.eulerAngles.x, targetRot.eulerAngles.y, 0);
-        print(targetRot.eulerAngles.x);
+        //print(targetRot.eulerAngles.x);
         Quaternion stepRot = Quaternion.RotateTowards(transform.rotation, easedRot, alignSpeed * Time.deltaTime);
         transform.rotation = stepRot;
         //Mathf.LerpAngle(transform.rotation.x, targetRot.x, pitchBias)

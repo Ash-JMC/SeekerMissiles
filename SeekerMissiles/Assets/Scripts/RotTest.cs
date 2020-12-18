@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class RotTest : MonoBehaviour
 {
-    public float angle;
-    public Vector3 targetRot;
+    public Vector3 eulerRot;   // Some Vector3 euler rotation you set in the inspector
     public float speed;
     private bool on;
-
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Input.GetKeyDown("space") && !on)
-        {
-            on = true;
-        }
+        if (Input.GetKeyDown("space") && !on) on = true;
 
         if(on)
         {
-            Quaternion lookRot = Quaternion.LookRotation(targetRot);
-            Quaternion stepRot = Quaternion.RotateTowards(transform.rotation, lookRot, speed * Time.deltaTime);
+            Quaternion targetRot = Quaternion.Euler(eulerRot);
+            // OR
+            //Quaternion targetRot = Quaternion.FromToRotation(Vector3.up, Vector3.right);
+            //Rotate from an upright position, to 90 degrees (right)
+
+            Quaternion stepRot = Quaternion.RotateTowards(transform.rotation, targetRot, speed * Time.deltaTime);
             transform.rotation = stepRot;
         }
+        print("Update");
+    }
+    private void FixedUpdate()
+    {
+        print("Fixed Update");
     }
 
 }
