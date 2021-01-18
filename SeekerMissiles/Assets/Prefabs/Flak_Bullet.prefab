@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1909905080165433924}
   - component: {fileID: 2815645754154598325}
   m_Layer: 11
-  m_Name: AA_Bullet
+  m_Name: Flak_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ TrailRenderer:
   m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.2
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -139,7 +139,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
+        time: 0.9777832
         value: 0
         inSlope: -2.7364805
         outSlope: -2.7364805
@@ -152,7 +152,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9733383, g: 1, b: 0.5990566, a: 1}
+      key0: {r: 1, g: 0.6390401, b: 0.6, a: 1}
       key1: {r: 0.9733383, g: 1, b: 0.5990566, a: 0}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -213,9 +213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6380b3cf2489db14c9eec04269a250b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactFX: {fileID: 7936486608207589641, guid: 5407f8abd8e924848993fbf827effefd,
+  impactFX: {fileID: 8759039907990200279, guid: b96ae1ddfd0e5dc4d977ef7eff73de89,
     type: 3}
-  flak: 0
+  flak: 1
 --- !u!1 &5030383507377442393
 GameObject:
   m_ObjectHideFlags: 0

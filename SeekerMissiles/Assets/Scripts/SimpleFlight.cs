@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimpleFlight : MonoBehaviour
 {
-    public float thrust, maxThrust, pitchSpeed, yawSpeed, rollSpeed, gravModNoLift, liftAngleMax;
+    public float thrust, maxThrust, pitchSpeed, yawSpeed, rollSpeed, gravModNoLift, liftAngleMax, dragAngle;
     [Range(0f, 1f)]
     public float alignVelocity;
     public Rigidbody rb;
@@ -21,17 +21,23 @@ public class SimpleFlight : MonoBehaviour
         roll = -Input.GetAxis("Roll") * rollSpeed;
         yaw = Input.GetAxis("Yaw") * yawSpeed;
         cThrust = Mathf.Max(Input.GetAxis("Thrust"), 0);
-        Vector3 turn = new Vector3(pitch, yaw, roll) * Time.deltaTime;
+        //new
+        float velAngle = Vector3.Angle(rb.velocity, transform.forward);
+        float turnDrag = Mathf.Max(0, 1 - velAngle / dragAngle);
+        print(turnDrag);
+        Vector3 turn = new Vector3(pitch * turnDrag, yaw * turnDrag, roll) * Time.deltaTime;
         transform.Rotate(turn);
             
     }
     void FixedUpdate()
     {
         float liftAngle = Vector3.Angle(transform.up, Vector3.up);
-        print(liftAngle);
+
         float liftMod = 0;
         float liftMod2 = Mathf.PingPong(liftAngle/90,1);
-        print(liftMod2);
+
+        
+
 
         if (liftAngle > liftAngleMax && liftAngle < 180 - liftAngleMax) liftMod = gravModNoLift;
 

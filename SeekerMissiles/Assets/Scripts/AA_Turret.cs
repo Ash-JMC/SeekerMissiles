@@ -16,6 +16,7 @@ public class AA_Turret : MonoBehaviour
     [Header("Weapon Specs")]
     public GameObject bullet;
     public Transform[] barrels;
+    public bool flak;
 
     public float bulletVel, bulletLife, bulletSpread, fireRate, maxRange, turretTurn, maxAngle, gravity = -9.85f;
     private Rigidbody RB;
@@ -61,7 +62,7 @@ public class AA_Turret : MonoBehaviour
 
     void GetTargetDeltas()
     {
-        tVel = tRB.velocity;
+        tVel = tRB.velocity * 1.1f;
         tVelMag = tVel.magnitude;
         distance = Vector3.Distance(transform.position, target.position);
         ttt = distance / bulletVel;
@@ -115,7 +116,8 @@ public class AA_Turret : MonoBehaviour
             spread.y = Random.Range(-bulletSpread, bulletSpread);
             b.transform.Rotate(spread);
             bRB.AddForce(b.transform.forward * bulletVel, ForceMode.VelocityChange);
-            Destroy(b, bulletLife);
+
+            Destroy(b, flak ? ttt * Random.Range(0.9f, 1.1f) : bulletLife);
         }
         
 
