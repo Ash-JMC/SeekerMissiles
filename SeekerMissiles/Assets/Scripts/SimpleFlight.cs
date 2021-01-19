@@ -9,6 +9,7 @@ public class SimpleFlight : MonoBehaviour
     public float alignVelocity;
     public Rigidbody rb;
     private float cThrust;
+    private bool auto;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,11 +17,12 @@ public class SimpleFlight : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q)) auto = !auto;
         float pitch, yaw, roll;
         pitch = Input.GetAxis("Pitch") * pitchSpeed;
         roll = -Input.GetAxis("Roll") * rollSpeed;
         yaw = Input.GetAxis("Yaw") * yawSpeed;
-        cThrust = Mathf.Max(Input.GetAxis("Thrust"), 0);
+        cThrust = auto  ? 1 : Mathf.Max(Input.GetAxis("Thrust"), 0);
         //new
         float velAngle = Vector3.Angle(rb.velocity, transform.forward);
         float turnDrag = Mathf.Max(0, 1 - velAngle / dragAngle);

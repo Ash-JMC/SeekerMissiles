@@ -2702,10 +2702,10 @@ GameObject:
   m_Layer: 0
   m_Name: Flak_Turret
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!120 &786476667
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2820,15 +2820,15 @@ MonoBehaviour:
   - {fileID: 330496718}
   - {fileID: 380832437}
   flak: 1
-  bulletVel: 2500
-  bulletLife: 10
-  bulletSpread: 2
-  fireRate: 2
-  maxRange: 13000
+  bulletVel: 1500
+  bulletLife: 15
+  bulletSpread: 3.5
+  fireRate: 0.25
+  maxRange: 14000
   turretTurn: 900
-  maxAngle: 1
+  maxAngle: 3
   gravity: -9.81
-  checkCycles: 4
+  checkCycles: 6
   maxFlash: 0.25
   drawTarget: 1
 --- !u!4 &786476669
@@ -2839,7 +2839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786476666}
   m_LocalRotation: {x: -0, y: -0, z: -9.458745e-11, w: 1}
-  m_LocalPosition: {x: 215, y: 38.599976, z: 2823}
+  m_LocalPosition: {x: 215, y: 47.4, z: 2823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1633452467}
@@ -3292,10 +3292,10 @@ GameObject:
   m_Layer: 0
   m_Name: Flak_Turret (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!120 &962497760
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3410,15 +3410,15 @@ MonoBehaviour:
   - {fileID: 397407458}
   - {fileID: 1970243101}
   flak: 1
-  bulletVel: 2500
-  bulletLife: 10
-  bulletSpread: 2
-  fireRate: 2
-  maxRange: 13000
+  bulletVel: 1500
+  bulletLife: 15
+  bulletSpread: 3.5
+  fireRate: 0.25
+  maxRange: 14000
   turretTurn: 900
-  maxAngle: 1
+  maxAngle: 3
   gravity: -9.81
-  checkCycles: 4
+  checkCycles: 6
   maxFlash: 0.25
   drawTarget: 1
 --- !u!4 &962497762
@@ -3429,7 +3429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962497759}
   m_LocalRotation: {x: -0, y: -0, z: -9.458745e-11, w: 1}
-  m_LocalPosition: {x: -3113, y: 38.599976, z: 380}
+  m_LocalPosition: {x: -3113, y: 47.4, z: 380}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 955633675}
@@ -3859,10 +3859,10 @@ GameObject:
   m_Layer: 0
   m_Name: Flak_Turret (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!120 &1125028869
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3977,15 +3977,15 @@ MonoBehaviour:
   - {fileID: 37402533}
   - {fileID: 2044180502}
   flak: 1
-  bulletVel: 2500
-  bulletLife: 10
-  bulletSpread: 2
-  fireRate: 2
-  maxRange: 13000
+  bulletVel: 1500
+  bulletLife: 15
+  bulletSpread: 3.5
+  fireRate: 0.25
+  maxRange: 14000
   turretTurn: 900
-  maxAngle: 1
+  maxAngle: 3
   gravity: -9.81
-  checkCycles: 4
+  checkCycles: 6
   maxFlash: 0.25
   drawTarget: 1
 --- !u!4 &1125028871
@@ -3996,7 +3996,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125028868}
   m_LocalRotation: {x: -0, y: -0, z: -9.458745e-11, w: 1}
-  m_LocalPosition: {x: 687, y: 38.599976, z: 3771}
+  m_LocalPosition: {x: 687, y: 47.4, z: 3771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 995873399}
@@ -5693,10 +5693,10 @@ GameObject:
   m_Layer: 0
   m_Name: Flak_Turret (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!120 &1530662607
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5811,15 +5811,15 @@ MonoBehaviour:
   - {fileID: 1912260258}
   - {fileID: 1264058741}
   flak: 1
-  bulletVel: 2500
-  bulletLife: 10
-  bulletSpread: 2
-  fireRate: 2
-  maxRange: 13000
+  bulletVel: 1500
+  bulletLife: 15
+  bulletSpread: 3.5
+  fireRate: 0.25
+  maxRange: 14000
   turretTurn: 900
-  maxAngle: 1
+  maxAngle: 3
   gravity: -9.81
-  checkCycles: 4
+  checkCycles: 6
   maxFlash: 0.25
   drawTarget: 1
 --- !u!4 &1530662609
@@ -5830,7 +5830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530662606}
   m_LocalRotation: {x: -0, y: -0, z: -9.458745e-11, w: 1}
-  m_LocalPosition: {x: -2830, y: 38.599976, z: 4084}
+  m_LocalPosition: {x: -2830, y: 47.4, z: 4084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1355994016}
@@ -8364,7 +8364,7 @@ PrefabInstance:
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: thrust
-      value: 2200
+      value: 2300
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
@@ -8404,7 +8404,7 @@ PrefabInstance:
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: dragAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743380129602, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
@@ -8501,10 +8501,55 @@ PrefabInstance:
       propertyPath: near clip plane
       value: 0.02
       objectReference: {fileID: 0}
+    - target: {fileID: 3099010743429926191, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: field of view
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 85.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -119.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.2790625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 5.689451e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0000000012530726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96027297
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 32.409
+      objectReference: {fileID: 0}
     - target: {fileID: 3099010743764789846, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743764789847, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3099010744207548536, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
@@ -8525,6 +8570,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StopNaN
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010744207548540, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_Name
+      value: RearViewCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010744207548540, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3099010744911759258, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
@@ -8624,12 +8679,12 @@ PrefabInstance:
     - target: {fileID: 3102522374494901867, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1394
+      value: 5574
       objectReference: {fileID: 0}
     - target: {fileID: 3102522374494901867, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8103
+      value: -25793
       objectReference: {fileID: 0}
     - target: {fileID: 3102522374494901867, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
