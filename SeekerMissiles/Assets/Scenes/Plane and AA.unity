@@ -1767,6 +1767,7 @@ MonoBehaviour:
   - {fileID: 1644487273}
   - {fileID: 779378731}
   flak: 0
+  flakFuseDeviation: 0
   bulletVel: 2000
   bulletLife: 10
   bulletSpread: 1.5
@@ -2028,6 +2029,7 @@ MonoBehaviour:
   - {fileID: 2131991137}
   - {fileID: 1476998694}
   flak: 0
+  flakFuseDeviation: 0
   bulletVel: 2000
   bulletLife: 10
   bulletSpread: 1.5
@@ -2820,16 +2822,17 @@ MonoBehaviour:
   - {fileID: 330496718}
   - {fileID: 380832437}
   flak: 1
-  bulletVel: 1500
+  flakFuseDeviation: 0.5
+  bulletVel: 2200
   bulletLife: 15
-  bulletSpread: 3.5
-  fireRate: 0.25
+  bulletSpread: 3
+  fireRate: 0.1
   maxRange: 14000
   turretTurn: 900
-  maxAngle: 3
+  maxAngle: 5
   gravity: -9.81
   checkCycles: 6
-  maxFlash: 0.25
+  maxFlash: 0.01
   drawTarget: 1
 --- !u!4 &786476669
 Transform:
@@ -3410,16 +3413,17 @@ MonoBehaviour:
   - {fileID: 397407458}
   - {fileID: 1970243101}
   flak: 1
-  bulletVel: 1500
+  flakFuseDeviation: 0.5
+  bulletVel: 2200
   bulletLife: 15
-  bulletSpread: 3.5
-  fireRate: 0.25
+  bulletSpread: 3
+  fireRate: 0.1
   maxRange: 14000
   turretTurn: 900
-  maxAngle: 3
+  maxAngle: 5
   gravity: -9.81
   checkCycles: 6
-  maxFlash: 0.25
+  maxFlash: 0.01
   drawTarget: 1
 --- !u!4 &962497762
 Transform:
@@ -3636,6 +3640,7 @@ MonoBehaviour:
   - {fileID: 802713263}
   - {fileID: 813716632}
   flak: 0
+  flakFuseDeviation: 0
   bulletVel: 400
   bulletLife: 7
   bulletSpread: 7
@@ -3977,16 +3982,17 @@ MonoBehaviour:
   - {fileID: 37402533}
   - {fileID: 2044180502}
   flak: 1
-  bulletVel: 1500
+  flakFuseDeviation: 0.5
+  bulletVel: 2200
   bulletLife: 15
-  bulletSpread: 3.5
-  fireRate: 0.25
+  bulletSpread: 3
+  fireRate: 0.1
   maxRange: 14000
   turretTurn: 900
-  maxAngle: 3
+  maxAngle: 5
   gravity: -9.81
   checkCycles: 6
-  maxFlash: 0.25
+  maxFlash: 0.01
   drawTarget: 1
 --- !u!4 &1125028871
 Transform:
@@ -5811,16 +5817,17 @@ MonoBehaviour:
   - {fileID: 1912260258}
   - {fileID: 1264058741}
   flak: 1
-  bulletVel: 1500
+  flakFuseDeviation: 0.5
+  bulletVel: 2200
   bulletLife: 15
-  bulletSpread: 3.5
-  fireRate: 0.25
+  bulletSpread: 3
+  fireRate: 0.1
   maxRange: 14000
   turretTurn: 900
-  maxAngle: 3
+  maxAngle: 5
   gravity: -9.81
   checkCycles: 6
-  maxFlash: 0.25
+  maxFlash: 0.01
   drawTarget: 1
 --- !u!4 &1530662609
 Transform:
@@ -8364,27 +8371,27 @@ PrefabInstance:
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: thrust
-      value: 2300
+      value: 2700
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: alignVelocity
-      value: 0.84
+      value: 0.807
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: yawSpeed
-      value: 60
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: rollSpeed
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: pitchSpeed
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
@@ -8404,7 +8411,7 @@ PrefabInstance:
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: dragAngle
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743380129602, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
@@ -8504,42 +8511,42 @@ PrefabInstance:
     - target: {fileID: 3099010743429926191, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: field of view
-      value: 64
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 85.88
+      value: 10.47
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -119.47
+      value: -59.43
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2790625
+      value: 0.0683624
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 5.689451e-10
+      value: 8.2252605e-10
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000012530726
+      value: -0.0000000011033316
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.96027297
+      value: 0.9976606
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743429926195, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 32.409
+      value: 7.84
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743764789846, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}

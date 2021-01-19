@@ -25,9 +25,9 @@ public class SimpleFlight : MonoBehaviour
         cThrust = auto  ? 1 : Mathf.Max(Input.GetAxis("Thrust"), 0);
         //new
         float velAngle = Vector3.Angle(rb.velocity, transform.forward);
-        float turnDrag = Mathf.Max(0, 1 - velAngle / dragAngle);
+        float turnDrag = Mathf.Max(0.1f, 1 - velAngle / dragAngle);
         print(turnDrag);
-        Vector3 turn = new Vector3(pitch * turnDrag, yaw * turnDrag, roll) * Time.deltaTime;
+        Vector3 turn = new Vector3(pitch * turnDrag, yaw * turnDrag, roll * turnDrag) * Time.deltaTime;
         transform.Rotate(turn);
             
     }
@@ -37,14 +37,14 @@ public class SimpleFlight : MonoBehaviour
 
         float liftMod = 0;
         float liftMod2 = Mathf.PingPong(liftAngle/90,1);
-
+        float boostMod = Input.GetKey(KeyCode.LeftShift) ? 3 : 1;
         
 
 
         if (liftAngle > liftAngleMax && liftAngle < 180 - liftAngleMax) liftMod = gravModNoLift;
 
         //rb.AddForce(transform.forward * thrust, ForceMode.Acceleration);
-        Vector3 vel = Vector3.Lerp(rb.velocity, transform.forward * thrust * cThrust, alignVelocity * Time.fixedDeltaTime);
+        Vector3 vel = Vector3.Lerp(rb.velocity, transform.forward * thrust * cThrust * boostMod, alignVelocity * Time.fixedDeltaTime);
         vel.y -= 9.8f * Time.fixedDeltaTime;
         rb.velocity = vel;
         rb.AddForce(Vector3.up * -9.81f * Time.fixedDeltaTime * (liftMod * liftMod2), ForceMode.Impulse);
