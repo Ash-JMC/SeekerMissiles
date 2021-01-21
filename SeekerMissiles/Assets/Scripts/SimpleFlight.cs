@@ -47,7 +47,7 @@ public class SimpleFlight : MonoBehaviour
         Vector3 vel = Vector3.Lerp(rb.velocity, transform.forward * thrust * cThrust * boostMod, alignVelocity * Time.fixedDeltaTime);
         vel.y -= 9.8f * Time.fixedDeltaTime;
         rb.velocity = vel;
-        rb.AddForce(Vector3.up * -9.81f * Time.fixedDeltaTime * (liftMod * liftMod2), ForceMode.Impulse);
+        rb.AddForce(Vector3.up * -9.81f * Time.fixedDeltaTime * (liftMod * liftMod2) + ((transform.right + transform.up * 0.1f) * -Input.GetAxis("Roll") * rollSpeed * 3.5f) * Mathf.Max(Input.GetAxis("Thrust"), 0), ForceMode.Impulse);
         // max forward vs max total etc
 
     }
