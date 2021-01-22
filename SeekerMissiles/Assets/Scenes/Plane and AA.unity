@@ -4009,13 +4009,13 @@ MonoBehaviour:
   - {fileID: 380832437}
   flak: 1
   flakFuseDeviation: 0.04
-  bulletVel: 3000
+  bulletVel: 1700
   bulletLife: 15
-  bulletSpread: 0.75
-  fireRate: 1
+  bulletSpread: 2
+  fireRate: 0.15
   maxRange: 18000
   turretTurn: 900
-  maxAngle: 1
+  maxAngle: 2
   gravity: -9.81
   checkCycles: 6
   maxFlash: 0.01
@@ -5208,13 +5208,13 @@ MonoBehaviour:
   - {fileID: 1970243101}
   flak: 1
   flakFuseDeviation: 0.04
-  bulletVel: 3000
+  bulletVel: 1700
   bulletLife: 15
-  bulletSpread: 0.75
-  fireRate: 1
+  bulletSpread: 2
+  fireRate: 0.15
   maxRange: 18000
   turretTurn: 900
-  maxAngle: 1
+  maxAngle: 2
   gravity: -9.81
   checkCycles: 6
   maxFlash: 0.01
@@ -5918,13 +5918,13 @@ MonoBehaviour:
   - {fileID: 2044180502}
   flak: 1
   flakFuseDeviation: 0.04
-  bulletVel: 3000
+  bulletVel: 1700
   bulletLife: 15
-  bulletSpread: 0.75
-  fireRate: 1
+  bulletSpread: 2
+  fireRate: 0.15
   maxRange: 18000
   turretTurn: 900
-  maxAngle: 1
+  maxAngle: 2
   gravity: -9.81
   checkCycles: 6
   maxFlash: 0.01
@@ -8060,13 +8060,13 @@ MonoBehaviour:
   - {fileID: 1264058741}
   flak: 1
   flakFuseDeviation: 0.04
-  bulletVel: 3000
+  bulletVel: 1700
   bulletLife: 15
-  bulletSpread: 0.75
-  fireRate: 1
+  bulletSpread: 2
+  fireRate: 0.15
   maxRange: 18000
   turretTurn: 900
-  maxAngle: 1
+  maxAngle: 2
   gravity: -9.81
   checkCycles: 6
   maxFlash: 0.01
@@ -11592,7 +11592,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 337793632, guid: 39a2767315f90134bbf2b66318485b62, type: 3}
       propertyPath: lerpBias
-      value: 0.95
+      value: 0.975
       objectReference: {fileID: 0}
     - target: {fileID: 337793632, guid: 39a2767315f90134bbf2b66318485b62, type: 3}
       propertyPath: lerpFollow
@@ -11604,7 +11604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 337793632, guid: 39a2767315f90134bbf2b66318485b62, type: 3}
       propertyPath: alignSpeed
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 337793632, guid: 39a2767315f90134bbf2b66318485b62, type: 3}
       propertyPath: pitchBias
@@ -11632,7 +11632,7 @@ PrefabInstance:
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: thrust
-      value: 2700
+      value: 2900
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
@@ -11647,12 +11647,12 @@ PrefabInstance:
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: rollSpeed
-      value: 600
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
       propertyPath: pitchSpeed
-      value: 170
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
@@ -11673,6 +11673,11 @@ PrefabInstance:
         type: 3}
       propertyPath: dragAngle
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099010743152592990, guid: 39a2767315f90134bbf2b66318485b62,
+        type: 3}
+      propertyPath: rollMod
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3099010743380129602, guid: 39a2767315f90134bbf2b66318485b62,
         type: 3}
